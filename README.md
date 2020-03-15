@@ -29,5 +29,5 @@ Host someinternalhost
  ```
 
 ## Hello travis
-bastion_IP = 35.185.231.46\
-someinternalhost_IP = 10.138.0.3
+ bastion_IP = 35.185.231.46
+ someinternalhost_IP = 10.138.0.3
