@@ -27,3 +27,7 @@ Host someinternalhost
  HostName 10.138.0.3
  ProxyJump bastion
  ```
+
+## I have no idea why we need this
+bastion_IP = 35.185.231.46\
+someinternalhost_IP = 10.138.0.3
