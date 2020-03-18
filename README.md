@@ -1,9 +1,10 @@
 ## Deriul_infra
  This is the playground to help me become a better specialist
-
+```
  Created [https://www.googleapis.com/compute/v1/projects/infra-271122/zones/us-west1-a/instances/reddit-app].
  NAME        ZONE        MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
  reddit-app  us-west1-a  g1-small                   10.138.0.8   35.233.176.37  RUNNING
+```
 
 ## Create FW Rule
 ```
