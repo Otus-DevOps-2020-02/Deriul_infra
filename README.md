@@ -1,33 +1,29 @@
 ## Deriul_infra
-Deriul Infra repository
+ This is the playground to help me become a better specialist
+```
+ NAME        ZONE        MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
+ reddit-app  us-west1-a  g1-small                   10.138.0.8   35.233.176.37  RUNNING
+```
 
-## ProxyJump
-The ProxyJump, or the -J flag, was introduced in ssh version 7.3. To use it, specify the bastion host to connect through after the -J flag, plus the remote host:
+## Create FW Rule
 ```
-$ ssh -J <bastion-host> <remote-host>
+gcloud compute --project=infra-271122 firewall-rules create puma-9292 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
 ```
-You can also set specific usernames and ports if they differ between the hosts:
-```
-$ ssh -J user@<bastion:port> <user@remote:port>
-```
-## ProxyJump with one command
-This could be easily achieved by modifying ~/.ssh/config
 
+## Deploooooooy the instance
 ```
-# OTUS The Bastion Host
-Host bastion
- User appuser
- PreferredAuthentications publickey
- IdentityFile ~/.ssh/apuser.key
- HostName 35.185.231.46
+gcloud compute instances create reddit-app\
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure\
+  --metadata startup-script-url=https://raw.githubusercontent.com/Otus-DevOps-2020-02/Deriul_infra/cloud-testapp/startup.sh
+```
 
-# Otus The Remote Host
-Host someinternalhost
- User appuser
- HostName 10.138.0.3
- ProxyJump bastion
- ```
-
-## Hello travis
- bastion_IP = 35.185.231.46
- someinternalhost_IP = 10.138.0.3
+## Travis CI check HW_6
+```
+testapp_IP = 35.233.176.37
+testapp_port = 9292
+```
