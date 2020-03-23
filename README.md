@@ -1,29 +1,27 @@
-## Deriul_infra
- This is the playground to help me become a better specialist
-```
- NAME        ZONE        MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
- reddit-app  us-west1-a  g1-small                   10.138.0.8   35.233.176.37  RUNNING
-```
+## HW_7
+  Working woth packer
 
-## Create FW Rule
+## Build image
 ```
-gcloud compute --project=infra-271122 firewall-rules create puma-9292 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
+packer build -var-file=variables.json ubuntu16.json
 ```
+  or
+```
+packer build \
+--var 'project_id=infra-271122' \
+--var 'source_image_family=ubuntu-1604-lts' \
+ubuntu16.json
+```
+  Available variables are listed in variables.json.examle
+  project_id and source_image_family are mandatory
 
-## Deploooooooy the instance
+## Deploy instance
 ```
-gcloud compute instances create reddit-app\
-  --boot-disk-size=10GB \
-  --image-family ubuntu-1604-lts \
-  --image-project=ubuntu-os-cloud \
+gcloud compute instances create reddit-full\
+  --boot-disk-size=20GB \
+  --image-family reddit-full \
+  --image-project=infra-271122 \
   --machine-type=g1-small \
   --tags puma-server \
-  --restart-on-failure\
-  --metadata startup-script-url=https://raw.githubusercontent.com/Otus-DevOps-2020-02/Deriul_infra/cloud-testapp/startup.sh
-```
-
-## Travis CI check HW_6
-```
-testapp_IP = 35.233.176.37
-testapp_port = 9292
+  --restart-on-failure
 ```
