@@ -1,0 +1,10 @@
+project          = "infra-271122"
+public_key_path  = "~/.ssh/appuser.pub"
+private_key_path = "~/.ssh/appuser"
+disk_image       = "reddit-base"
+zone             = "europe-west1-b"
+howmany          = 2
+ssh-keys         = <<EOF
+                   appuser:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD430UPFamd078GTW1RZnLkHKq00XQCWpo0VUonv1ojsP/p5S+cYxVjyo4i5G5y3A939KDx0OqcfF5WGlNOfu3tWbuiwCk8UZmYOJiKLxSmobKM2A10aYe/zFc3emiAZxmbQogKuB8huCxL8eeUcWKfntDiXOnGfE/XZy3DjHQtGdA01Emz942vV5QabeELPxCN/OGKa4G6xKm+57kylp8PdXH/uE+WUZv+41bpUyyg/FsfSa0rE7fzj6sKpk1Gdxy+ZI1q1opYxoFw4TnmKb6Qx2jz0yptdAucN3/KbwnsZFkuXcNIwdFbnrdrpEzu/HC73DQhwfLcamRmZhwZrunx appuser
+                   appuser2:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD430UPFamd078GTW1RZnLkHKq00XQCWpo0VUonv1ojsP/p5S+cYxVjyo4i5G5y3A939KDx0OqcfF5WGlNOfu3tWbuiwCk8UZmYOJiKLxSmobKM2A10aYe/zFc3emiAZxmbQogKuB8huCxL8eeUcWKfntDiXOnGfE/XZy3DjHQtGdA01Emz942vV5QabeELPxCN/OGKa4G6xKm+57kylp8PdXH/uE+WUZv+41bpUyyg/FsfSa0rE7fzj6sKpk1Gdxy+ZI1q1opYxoFw4TnmKb6Qx2jz0yptdAucN3/KbwnsZFkuXcNIwdFbnrdrpEzu/HC73DQhwfLcamRmZhwZrunx appuser
+                   EOF
