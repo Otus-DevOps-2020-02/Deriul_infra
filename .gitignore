@@ -1,0 +1,10 @@
+
+.vscode
+.terraform
+
+variables.json
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+*.bk
