@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    #bucket  = "prod-tf-back-prod"
+    bucket  = "stage-tf-back-stage"
+  }
+}
+
 provider "google" {
   version = "~> 2.15"
   project = var.project
