@@ -1,7 +1,7 @@
-## HW_9
+# HW_9
   Working with terraform 0.12
 
-## As usual, there is nothing challenging except the starred task
+# As usual, there is nothing challenging except the starred task
   Problems to solve:
     a) Make unique names for resorces in different environments
     b) Make cross-modure db_internal_ip transition
@@ -20,11 +20,11 @@ description = "Disk image for reddit db"
 default     = "reddit-db-1585320863"
 }
 ```
-# Problem A
+## Problem A
   A
 
-# Problem B
+## Problem B
   B
 
-# Problem C
+## Problem C
   C
