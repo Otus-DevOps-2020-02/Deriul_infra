@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "stage-tf-back-stage"
+    bucket = "stage-tf-back-stage"
   }
 }
 

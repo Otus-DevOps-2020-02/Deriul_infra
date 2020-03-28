@@ -1,27 +1,30 @@
-## HW_8
-  Working with terraform
+## HW_9
+  Working with terraform 0.12
 
-# Problem with SSH
-  If we try and get commonInstanceMetadata, we see that there is no actual key-value storage for ssh keys, all the keys are listed in items.value together.
+## As usual, there is nothing challenging except the starred task
+  Problems to solve:
+    a) Make unique names for resorces in different environments
+    b) Make cross-modure db_internal_ip transition
+    c) Make bool variable to decide if we want to deploy and configure our app
+  
+  Solutions:
+    First off, we do not want our instances to be recreated every time we make a change
 ```
-"commonInstanceMetadata": {
-    "fingerprint": "SY_FZfnpC_s=",
-    "kind": "compute#metadata",
-    "items": [
-      {
-        "value": "appuser:ssh-rsa AAAAB3Nza...mZhwZrunx appuser",
-        "key": "ssh-keys"
-      }
-    ]
-  },
-  ```
-   Therefore, terraform can only keep valid state of ssh-keys if: a) it has never been modified outside of teraform b) it is always modified entirely.
+~ initialize_params {
+~ image  = "https://www.googleapis.com/compute/v1/.../images/reddit-db-1585320863" -> "reddit-db-base" # forces replacement
+```
+  Let's hardcode our image:
+```
+variable db_disk_image {
+description = "Disk image for reddit db"
+default     = "reddit-db-1585320863"
+}
+```
+# Problem A
+  A
 
-# Problem with LB
-  Due to monolithic application structure, data consistency is hardly achievable.
+# Problem B
+  B
 
-# Other issues
-  a) ssh-keys must be optional (will check how to do it later)
-  b) yes, I know, main.tf should be divided into modules
-  c) no, at this time I'm too lazy to write clean code
-  d) I should have used migs
+# Problem C
+  C

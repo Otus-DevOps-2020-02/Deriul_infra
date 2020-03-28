@@ -26,3 +26,24 @@ resource "google_compute_firewall" "firewall_mongo" {
   target_tags = ["reddit-db"]
   source_tags = ["reddit-app"]
 }
+
+/*
+resource "local_file" "puma" {
+  content     = <<EOT
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+[Service]
+Type=simple
+User=appuser
+WorkingDirectory=/home/appuser/reddit
+ExecStart=/bin/bash -lc 'puma'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Environment=DATABASE_URL=${google_compute_instance.db.network_interface.0.network_ip}
+EOT
+
+    filename = "../modules/app/puma.service"
+}*/
