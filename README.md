@@ -17,16 +17,23 @@
 ```
 variable db_disk_image {
 description = "Disk image for reddit db"
-default     = "reddit-db-1585320863"
+default     = "reddit-db-1585507673"
 }
 ```
 
 ## Problem A
-  Solved by adding a suffix in root module
+  Solved by adding a suffix in root module...
 ```
-locals {
-  env_sfx = "stage"
+variable env {}
+
+module "app" {
+  env_sfx        = var.env
 }
+```
+  and passing it into app.module
+```
+resource "google_compute_instance" "app_with_puma" {
+  name         = "${lower(var.env_sfx)}-reddit-app"
 ```
 
 ## Problem B
@@ -38,4 +45,7 @@ sudo sed -i 's/0.0.0.2/0.0.0.0/g' /etc/mongod.conf
 ```
 
 ## Problem C
-  WIP
+  Solved by adding
+```
+count = var.dep_sw ? 1 : 0
+```
