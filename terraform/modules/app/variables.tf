@@ -18,3 +18,10 @@ variable app_disk_image {
   description = "Disk image for reddit app"
   default     = "reddit-app-1585320655"
 }
+
+variable db_internal_ip {}
+variable env_sfx {}
+
+variable dep_sw {
+  type = bool
+}

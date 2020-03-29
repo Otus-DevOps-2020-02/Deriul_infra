@@ -7,7 +7,10 @@ variable region {
   default     = "europe-west1"
 }
 
-variable source_ranges {
-  description = "Allowed IP addresses"
-  default     = ["0.0.0.0/0"]
+variable source_ranges {}
+
+variable env {}
+
+variable dep_sw {
+  type = bool
 }

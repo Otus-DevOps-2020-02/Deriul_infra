@@ -11,11 +11,15 @@ provider "google" {
 }
 
 module "app" {
-  source = "../modules/app"
+  env_sfx        = var.env
+  source         = "../modules/app"
+  db_internal_ip = module.db.db_internal_ip
+  dep_sw         = var.dep_sw
 }
 
 module "db" {
-  source = "../modules/db"
+  env_sfx = var.env
+  source  = "../modules/db"
 }
 
 module "vpc" {

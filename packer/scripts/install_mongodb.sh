@@ -5,3 +5,4 @@ bash -c 'echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 mul
 apt update
 apt install -y mongodb-org
 systemctl enable mongod
+sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf

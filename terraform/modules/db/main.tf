@@ -1,5 +1,6 @@
 resource "google_compute_instance" "db" {
-  name         = "reddit-db"
+  name = "${lower(var.env_sfx)}-reddit-db"
+  #name         = "reddit-db"
   machine_type = "g1-small"
   zone         = var.zone
   tags         = ["reddit-db"]
@@ -11,6 +12,7 @@ resource "google_compute_instance" "db" {
   network_interface {
     network = "default"
   }
+
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }

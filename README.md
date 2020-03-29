@@ -20,11 +20,22 @@ description = "Disk image for reddit db"
 default     = "reddit-db-1585320863"
 }
 ```
+
 ## Problem A
-  A
+  Solved by adding a suffix in root module
+```
+locals {
+  env_sfx = "stage"
+}
+```
 
 ## Problem B
-  B
+  Do not be like me, use "template_file" not "file", read https://alexharv074.github.io/2019/11/23/adventures-in-the-terraform-dsl-part-x-templates.html#template-providers--21
+
+  You probably also want to rebuild db image with
+```
+sudo sed -i 's/0.0.0.2/0.0.0.0/g' /etc/mongod.conf
+```
 
 ## Problem C
-  C
+  WIP
