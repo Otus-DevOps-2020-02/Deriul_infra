@@ -4,7 +4,7 @@
 # As usual, there is nothing challenging except the starred task
   Problems to solve:
     a) Make unique names for resorces in different environments
-    b) Make cross-modure db_internal_ip transition
+    b) Make cross-module db_internal_ip transition
     c) Make bool variable to decide if we want to deploy and configure our app
   
   Solutions:
