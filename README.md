@@ -41,7 +41,7 @@ resource "google_compute_instance" "app_with_puma" {
 
   You probably also want to rebuild db image with
 ```
-sudo sed -i 's/0.0.0.2/0.0.0.0/g' /etc/mongod.conf
+sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 ```
 
 ## Problem C
