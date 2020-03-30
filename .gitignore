@@ -1,10 +1,11 @@
-
 .vscode
 .terraform
-
 variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 *.bk
+terraform/files/appuser
+terraform/files/appuser.pub
+.terraform.tfstate.lock.info
