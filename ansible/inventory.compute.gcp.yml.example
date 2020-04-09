@@ -6,7 +6,6 @@ auth_kind: 'serviceaccount'
 hostnames: 'name'
 keyed_groups:
   - key: 'zone'
-  - key: 'tags'
 groups:
   stage: "'stage' in name"
 compose:
