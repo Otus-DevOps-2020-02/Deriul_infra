@@ -1,8 +1,8 @@
-terraform {
+/*terraform {
   backend "gcs" {
     bucket = "stage-tf-back-stage"
   }
-}
+}*/
 
 provider "google" {
   version = "~> 2.15"
@@ -26,4 +26,3 @@ module "vpc" {
   source        = "../modules/vpc"
   source_ranges = var.source_ranges
 }
-
