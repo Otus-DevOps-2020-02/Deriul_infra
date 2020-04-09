@@ -1,6 +1,6 @@
 ---
 - name: clone
-  hosts: app
+  hosts: stage-reddit-app
   tasks:
     - name: clone repo
       git:
