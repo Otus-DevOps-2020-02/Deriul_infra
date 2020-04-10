@@ -1,7 +1,6 @@
 ---
   - name: Deploy Puma
     hosts: app
-    tags: deploy-tag
     become: true
 
     tasks:

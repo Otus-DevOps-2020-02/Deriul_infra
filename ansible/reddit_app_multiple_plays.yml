@@ -21,7 +21,7 @@
 
   - name: Deploy Puma
     hosts: app
-    tag: app-tag
+    tags: app-tag
     become: true
     vars:
       db_host: 104.199.66.106

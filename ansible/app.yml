@@ -1,7 +1,6 @@
 ---
   - name: Configure Puma
     hosts: app
-    tags: app-tag
     become: true
     vars:
       db_host: 104.199.66.106 #TODO
