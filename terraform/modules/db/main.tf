@@ -11,12 +11,20 @@ resource "google_compute_instance" "db" {
   }
   network_interface {
     network = "default"
+    access_config {
+      nat_ip = google_compute_address.db_ip.address
+    }
   }
 
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
 }
+
+resource "google_compute_address" "db_ip" {
+  name = "reddit-db-ip"
+}
+
 
 resource "google_compute_firewall" "firewall_mongo" {
   name    = "allow-mongo-default"
@@ -28,4 +36,3 @@ resource "google_compute_firewall" "firewall_mongo" {
   target_tags = ["reddit-db"]
   source_tags = ["reddit-app"]
 }
-
