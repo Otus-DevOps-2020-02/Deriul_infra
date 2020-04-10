@@ -1,6 +1,14 @@
 # HW_11 ansible-2
   Working with absible 2.9.6
 
+  We use plugin: 'gcp_compute' to create dynamic invenroty (see inventory.compute.gcp.example)
+  We created multiple playboks and tested several different deployment scenarous:
+    - one playbook with one scenario
+    - one playbook with multiple scenarios
+    - multiple playbooks
+
+  We repacked our Packer images using ansible instead of shell commands
+
 # HW_10 ansible-1
   Working with absible 2.9.6
 
