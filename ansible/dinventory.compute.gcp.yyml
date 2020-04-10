@@ -10,5 +10,6 @@ groups:
   stage: "'stage' in name"
   db: "'db' in name"
   app: "'app' in name"
+
 compose:
   ansible_host: networkInterfaces[0].accessConfigs[0].natIP
