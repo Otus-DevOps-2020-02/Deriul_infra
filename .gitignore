@@ -9,3 +9,5 @@ variables.json
 terraform/files/appuser
 terraform/files/appuser.pub
 .terraform.tfstate.lock.info
+service_account.json
+ansible/.tmp/*
