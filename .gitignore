@@ -11,3 +11,6 @@ terraform/files/appuser.pub
 .terraform.tfstate.lock.info
 service_account.json
 ansible/.tmp/*
+*.retry
+packer
+*.old

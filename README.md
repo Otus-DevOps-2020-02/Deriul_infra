@@ -1,10 +1,21 @@
-# HW_10
+# HW_11 ansible-2
+  Working with absible 2.9.6
+
+  We use plugin: 'gcp_compute' to create dynamic invenroty (see inventory.compute.gcp.example)
+  We created multiple playboks and tested several different deployment scenarous:
+    - one playbook with one scenario
+    - one playbook with multiple scenarios
+    - multiple playbooks
+
+  We repacked our Packer images using ansible instead of shell commands
+
+# HW_10 ansible-1
   Working with absible 2.9.6
 
   In this HW we made an initial ansible configuration.
   The difference in json schema is described here https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html in "Tuning the external inventory script" section
 
-# HW_9
+# HW_9 terraform-2
   Working with terraform 0.12
 
 # As usual, there is nothing challenging except the starred task
@@ -28,7 +39,7 @@ default     = "reddit-db-1585507673"
 ```
 
 ## Problem A
-  Solved by adding a suffix in root module...
+  Solved by adding a suffix in root module
 ```
 variable env {}
 
@@ -55,8 +66,8 @@ sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 ```
 count = var.dep_sw ? 1 : 0
 ```
-## HW_8
-  Working with terraform
+## HW_8 terraform-1
+  Working with terraform 0.12
 
 # Problem with SSH
   If we try and get commonInstanceMetadata, we see that there is no actual key-value storage for ssh keys, all the keys are listed in items.value together.

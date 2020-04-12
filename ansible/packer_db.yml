@@ -1,0 +1,36 @@
+---
+  - name: Install and configure Mongo
+    hosts: all
+    become: true
+    vars:
+      mongo_bind_ip: 0.0.0.0
+
+    tasks:
+      - name: Import MongoDB public GPG Key
+        apt_key:
+          keyserver: keyserver.ubuntu.com
+          id: D68FA50FEA312927
+
+      - name: Add MongoDB repository into sources list
+        apt_repository:
+          repo: deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+          state: present
+      - name: Install MongoDB package
+        apt:
+          name: mongodb-org
+          update_cache: yes
+
+      - name: Change mongo config file
+        become: true
+        template:
+          src: templates/mongod.conf.j2
+          dest: /etc/mongod.conf
+          mode: 0644
+        notify: restart mongod
+
+      - name: Enable mongo
+        service: name=mongod enabled=yes
+
+    handlers:
+      - name: restart mongod
+        service: name=mongod state=restarted
