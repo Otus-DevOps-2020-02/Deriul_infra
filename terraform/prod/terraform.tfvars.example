@@ -3,4 +3,4 @@ source_ranges = ["0.0.0.0/0"]
 #set env
 env = "prod"
 #deploy?
-dep_sw = true
+dep_sw = false

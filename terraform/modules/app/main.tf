@@ -56,16 +56,27 @@ resource "google_compute_instance" "app_without_puma" {
 }
 
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip"
+  name = "reddit-${lower(var.env_sfx)}-app-ip"
 }
 
 
 resource "google_compute_firewall" "firewall_puma" {
-  name    = "allow-puma-default"
+  name    = "allow-${lower(var.env_sfx)}-puma-default"
   network = "default"
   allow {
     protocol = "tcp"
     ports    = ["9292"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["reddit-app"]
+}
+
+resource "google_compute_firewall" "firewall_puma_proxy" {
+  name    = "allow-${lower(var.env_sfx)}-puma-proxy"
+  network = "default"
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
   }
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]

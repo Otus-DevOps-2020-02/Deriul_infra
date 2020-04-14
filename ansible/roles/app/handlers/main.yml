@@ -1,0 +1,4 @@
+---
+# handlers file for apphandlers:
+- name: start puma
+  systemd: name=puma state=restarted

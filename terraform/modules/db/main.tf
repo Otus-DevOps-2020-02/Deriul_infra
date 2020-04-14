@@ -22,12 +22,12 @@ resource "google_compute_instance" "db" {
 }
 
 resource "google_compute_address" "db_ip" {
-  name = "reddit-db-ip"
+  name = "reddit-${lower(var.env_sfx)}-db-ip"
 }
 
 
 resource "google_compute_firewall" "firewall_mongo" {
-  name    = "allow-mongo-default"
+  name    = "allow-${lower(var.env_sfx)}-mongo-default"
   network = "default"
   allow {
     protocol = "tcp"
