@@ -1,3 +1,11 @@
+# HW_12 ansible-3
+  Working with absible 2.9.6
+
+  We learned how to use ansible roles and envs:
+  ansible-playbook -i environments/stage/inventory.compute.gcp.yml playbooks/site.yml
+
+  As ususal, we use gcp_compute plugin to build inventory.
+
 # HW_11 ansible-2
   Working with absible 2.9.6
 
