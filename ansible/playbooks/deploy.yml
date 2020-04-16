@@ -1,6 +1,6 @@
 ---
   - name: Deploy Puma
-    hosts: app
+    hosts: reddit_app
     become: true
 
     tasks:
