@@ -1,9 +1,0 @@
-app:
-  hosts:
-    stage-reddit-app:
-      ansible_host: 35.187.87.34
-
-db:
-  hosts:
-    stage-reddit-db:
-      ansible_host: 104.199.66.106
