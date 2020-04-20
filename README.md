@@ -1,3 +1,25 @@
+# HW_13 ansible-4
+  Working with absible 2.9.6, vagrant 2.2.7
+
+  We stated learning how to work with vagrant and molecule for testing purposes.
+  Added ngunx config for our packer_app.yml:
+  ```
+      vars:
+      nginx_sites:
+        default:
+          - listen 80
+          - server_name reddit
+          - location / { proxy_pass http://127.0.0.1:9292; }
+  ```
+  Tested db server port availability
+  ```
+  def test_port_open(host):
+    assert host.socket("tcp://27017").is_listening
+
+  ```
+  Configured vagrant templates to use the most recent playbooks
+  Moved db role to external repository
+
 # HW_12 ansible-3
   Working with absible 2.9.6
 
