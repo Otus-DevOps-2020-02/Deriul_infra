@@ -17,7 +17,7 @@
       tags: install
 
     - name: Add unit file for Puma
-      tempalte:
+      template:
         src: puma.service.j2
         dest: /etc/systemd/system/puma.service
       notify: start puma
