@@ -16,7 +16,7 @@ variable zone {
 
 variable app_disk_image {
   description = "Disk image for reddit app"
-  default     = "reddit-app-1586524951"
+  default     = "reddit-app-1587342813"
 }
 
 variable db_internal_ip {}
