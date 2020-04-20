@@ -2,22 +2,13 @@
   - name: Configure Puma
     hosts: all
     become: true
+    vars:
+      nginx_sites:
+        default:
+          - listen 80
+          - server_name reddit
+          - location / { proxy_pass http://127.0.0.1:9292; }
 
-    tasks:
-      - name: Fetch the latest version of application code
-        git:
-          repo: 'https://github.com/express42/reddit.git'
-          dest: /home/appuser/reddit
-          version: monolith
-
-      - name: Ruby install
-        apt:
-          pkg:
-          - ruby-full
-          - ruby-bundler
-          - build-essential
-
-      - name: Bundle install
-        bundler:
-          state: present
-          chdir: /home/appuser/reddit
+    roles:
+      - app
+      - jdauphant.nginx
